@@ -1,0 +1,173 @@
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+<!--    <link rel="stylesheet" href="./css/home.css" type="text/css">-->
+<!--    <title>Home</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class = "container" id = "home-container">-->
+<!--    <div id = "status-form-container">-->
+<!--        <h2>Update your pup's status here!</h2>-->
+<!--        <form id = "status-form">-->
+<!--            <div class = "form-group">-->
+<!--                <textarea class = "form-control" id = "status-input" placeholder = "Update status.." rows = "5"></textarea>-->
+<!--            </div>-->
+<!--            <button id = "submit-button" type = "submit" class = "btn btn-primary mt-1">Update Status</button>-->
+<!--        </form>-->
+<!--        <div id = "status-container" class = "container-fluid"></div>-->
+<!--    </div>-->
+
+
+<!--&lt;!&ndash;    <div id = "vaccinations-form-container">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h2>Add your pup's vaccinations here!</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;        <form id = "vaccinations-form">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class = "form-group" >&ndash;&gt;-->
+<!--&lt;!&ndash;                <label for = "vaccination-name">Name of vaccination</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type = "text" class = "form-control" id = "vaccination-name" placeholder="Enter name of vaccination">&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class = "form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                <label for = "vaccination-date">Date of vaccination</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type = "date" class = "form-control" id = "vaccination-date" placeholder = "Enter date of vaccination">&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class = "form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                <label for = "vet-name">Name of veterinarian</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type = "text" class = "form-control" id = "vet-name" placeholder = "Enter name of the veterinarian that administered vaccination">&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button type="submit" class="btn btn-primary mb-1">Add Vaccination</button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </form>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+
+
+
+<!--</div>-->
+
+<!--<a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>-->
+
+
+<!--<div class="modal fade" id="status-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="status-edit-modal-title" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="status-edit-modal-title">Edit your pup's status</h5>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body d-flex">-->
+<!--                <textarea class="form-control" rows="5" id="status-body"></textarea>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                <button type="button" id="update-status-button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Edit Vaccination Modal &ndash;&gt;-->
+<!--&lt;!&ndash;<div class="modal fade" id="edit-vaccination-modal" tabindex="-1" aria-labelledby="edit-vaccination-modal-label" aria-hidden="true">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="modal-dialog">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="modal-content">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="modal-header">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h5 class="modal-title" id="edit-vaccination-modal-label">Edit Vaccination</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="modal-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                <form id="edit-vaccination-form">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label for="edit-vaccination-name" class="col-form-label">Vaccination Name:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="text" class="form-control" id="edit-vaccination-name">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label for="edit-vaccination-date" class="col-form-label">Vaccination Date:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="date" class="form-control" id="edit-vaccination-date">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label for="edit-vaccination-vet" class="col-form-label">Vet Name:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="text" class="form-control" id="edit-vaccination-vet">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </form>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="modal-footer">&ndash;&gt;-->
+<!--&lt;!&ndash;                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                <button type="button" class="btn btn-primary" id="edit-vaccination-submit-btn">Save Changes</button>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"-->
+<!--        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="javascript/home.js" type="application/javascript"></script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/home.css" type="text/css">
+    <title>Home</title>
+</head>
+<body>
+<a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
+
+<div class="container" id="home-container">
+    <h2>Update your pup's status for today here!</h2>
+    <div id="statusUpdate-form-container">
+        <form id="statusUpdate-form">
+            <div class="form-group">
+                <textarea class="form-control" id="statusUpdate-input" placeholder="Update your status..." rows="5"></textarea>
+            </div>
+            <button id="submit-button" type="submit" class="btn btn-primary mt-1">Submit</button>
+
+        </form>
+
+        <div id="statusUpdate-container" class="container-fluid"></div>
+
+     </div>
+</div>
+
+
+
+
+<!--Status Update Modal -->
+<div class="modal fade" id="statusUpdate-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="statusUpdate-edit-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="statusUpdate-edit-modal-title">Edit your status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex">
+                <textarea class="form-control" rows="5" id="statusUpdate-body"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="update-statusUpdate-button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+<script src="./javascript/home.js" type="application/javascript"></script>
+
+</body>
+</html>
